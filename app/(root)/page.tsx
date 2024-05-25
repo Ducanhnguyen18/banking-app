@@ -1,7 +1,12 @@
 import HeaderBox from "@/components/HeaderBox";
+import RightSideBar from "@/components/RightSideBar";
 import TotalBalanceBox from "@/components/TotalBalanceBox";
 function Home() {
-    const loggedIn = {firstname: 'david'}
+    const loggedIn = {
+        firstName: 'david', 
+        lastName: 'nguyen',
+        email: 'ducanhnguyen145@gmail.com'
+    }
     return ( 
         <section className="home">
             <div className="home-content">
@@ -9,14 +14,18 @@ function Home() {
                     <HeaderBox 
                     type="greeting"
                     title="welcome"
-                    user={loggedIn?.firstname || 'Guest'}
+                    user={loggedIn?.firstName || 'Guest'}
                     subtext="Access and manage your account and transactions efficiently"/>
                     <TotalBalanceBox 
                     accounts={[]}
                     totalBanks={1}
                     totalCurrentBalance={1250}/>
                 </header>
+                Recent transactions
             </div>
+            <RightSideBar user={loggedIn}
+            transactions={[]}
+            banks={[{currentBalance: 50}, {currentBalance: 50}]}/>
         </section>
      );
 }
